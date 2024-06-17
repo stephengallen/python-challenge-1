@@ -52,7 +52,7 @@ menu = {
 
 # 1. Set up order list. Order list will store a list of dictionaries for
 # menu item name, item price, and quantity ordered
-
+order_list = [menu]
 
 # Launch the store and present a greeting to the customer
 print("Welcome to the variety food truck.")
@@ -117,6 +117,60 @@ while place_order:
                         "Price": value
                     }
                     i += 1
+
+           # Add these lines after your existing code
+
+# Continuation of the loop to handle item selection
+            # Get the customer's input for the item
+            item_number = input("Type the item number: ")
+
+            # Check if the customer's input is a number
+            if item_number.isdigit():
+                # Check if the customer's input is a valid option
+                if int(item_number) in menu_items.keys():
+                    # Save the item details to a variable
+                    selected_item = menu_items[int(item_number)]
+                    print(f"You selected {selected_item['Item name']} which costs ${selected_item['Price']}")
+
+                    # Ask for the quantity
+                    quantity = input("How many would you like to order? ")
+
+                    # Check if the quantity is a number
+                    if quantity.isdigit():
+                        quantity = int(quantity)
+                        # Add the selected item to the order list
+                        order_list.append({
+                            "Item name": selected_item['Item name'],
+                            "Price": selected_item['Price'],
+                            "Quantity": quantity
+                        })
+                        print(f"Added {quantity} x {selected_item['Item name']} to your order.")
+
+                    else:
+                        print("Invalid quantity. Please enter a number.")
+
+                else:
+                    print("Invalid item number. Please select from the list.")
+
+            else:
+                print("Invalid input. Please enter a number.")
+
+            # Ask if they want to continue ordering
+            continue_order = input("Would you like to order anything else? (yes/no) ").strip().lower()
+            if continue_order != "yes":
+                place_order = False
+
+# After exiting the loop, display the final order and total cost
+print("\nYour final order is:")
+total_cost = 0
+for item in order_list:
+    if isinstance(item, dict):  # skip the initial menu dictionary
+        print(f"{item['Quantity']} x {item['Item name']} @ ${item['Price']} each")
+        total_cost += item['Quantity'] * item['Price']
+
+print(f"\nTotal cost: ${total_cost:.2f}")
+print("Thank you for your order!")
+         
             # 2. Ask customer to input menu item number
 
 
@@ -144,17 +198,19 @@ while place_order:
 
                 # Tell the customer they didn't select a menu option
 
-        else:
-            # Tell the customer they didn't select a menu option
-            print(f"{menu_category} was not a menu option.")
-    else:
-        # Tell the customer they didn't select a number
-        print("You didn't select a number.")
+    #     else:
+    #         # Tell the customer they didn't select a menu option
+    #         print(f"{menu_category} was not a menu option.")
+    # else:
+    #     # Tell the customer they didn't select a number
+    #     print("You didn't select a number.")
 
-    while True:
-        # Ask the customer if they would like to order anything else
-        keep_ordering = input("Would you like to keep ordering? (Y)es or (N)o ")
-
+    # while True:
+    #     # Ask the customer if they would like to order anything else
+    #     keep_ordering = input("Would you like to keep ordering? (Y)es or (N)o ")
+        
+    #     if keep_ordering == 'n':
+    #       break
         # 5. Check the customer's input
 
                 # Keep ordering
@@ -168,6 +224,7 @@ while place_order:
 
                 # Exit the keep ordering question loop
 
+    
 
                 # Tell the customer to try again
 
