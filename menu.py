@@ -160,6 +160,20 @@ while place_order:
             if continue_order != "yes":
                 place_order = False
 
+            while True:
+              response = input("Would you like to order anything else? (y/n) ").strip().lower()
+
+              match response:
+                 case 'y':
+                   place_order = True
+                   break
+                 case 'n':
+                   place_order = False
+                   print("Thank you for your order")
+                   break
+                 case _:
+                   print("Invalid input. Please enter 'y' or 'n'.")
+
 # After exiting the loop, display the final order and total cost
 print("\nYour final order is:")
 total_cost = 0
