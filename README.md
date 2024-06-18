@@ -20,4 +20,5 @@ To design an interactive ordering system from a food truck menu, using the skill
                             "Price": value2
 
 ## _What Did I Learn?_
-    I learned that tackling the project in small portions works best. I would run the system to a certain point and then continue to work from there on the next steps until completion. This helped me avoid any confusion as the project grew. Early on I tried putting in code for parts that weren't ready yet, and that just led to errors and frustration.
+ 
+ I learned that tackling the project in small portions works best. I would run the system to a certain point and then continue to work from there on the next steps until completion. This helped me avoid any confusion as the project grew. Early on I tried putting in code for parts that weren't ready yet, and that just led to errors and frustration.
