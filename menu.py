@@ -151,7 +151,7 @@ while place_order:
 
             # Ask if they want to continue ordering using match statement
             while True:
-                response = input("Would you like to order anything else? (y/n) ").strip().lower()
+                response = input("Would you like to order anything else? (y/n) ").lower()
 
                 match response:
                     case 'y':
@@ -170,7 +170,7 @@ print("--------------------------|--------|----------")
 
 # Loop through the order list and format the receipt
 for order in order_list:
-    if isinstance(order, dict):  # Skip the initial menu dictionary
+    if isinstance(order, dict): 
         item_name = order['Item name']
         price = order['Price']
         quantity = order['Quantity']
